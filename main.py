@@ -14,7 +14,7 @@ def main() -> None:
         if race_data is not None:
             race_obj, _ = Race.objects.get_or_create(
                 name=race_data.get("name"),
-                description=race_data.get("description"),
+                defaults={"description": race_data.get("description")}
             )
 
             for skill in race_data.get("skills", []):
@@ -27,7 +27,7 @@ def main() -> None:
         if guild_data is not None:
             guild_obj, _ = Guild.objects.get_or_create(
                 name=guild_data.get("name"),
-                description=guild_data.get("description"),
+                defaults={"description": guild_data.get("description")}
             )
         player_obj, _ = Player.objects.get_or_create(
             nickname=name,
