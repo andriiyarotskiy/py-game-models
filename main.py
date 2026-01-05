@@ -5,7 +5,7 @@ from db.models import Race, Skill, Player, Guild
 
 
 def main() -> None:
-    with open('players.json') as file:
+    with open("players.json") as file:
         data = json.load(file)
         for name, player in data.items():
 
@@ -33,8 +33,8 @@ def main() -> None:
                 nickname=name,
                 defaults={"email": player.get("email"),
                           "bio": player.get("bio"),
-                          'race': race_obj,
-                          'guild': guild_obj
+                          "race": race_obj,
+                          "guild": guild_obj
                           }
             )
 
